@@ -32,7 +32,6 @@ function queryServer(userid) {
         "Content-Type": "text/plain"
     }
   }).then((result) => {
-    loadingToast.hideToast()
     if (!result.ok) {
       Toastify({
         text: "Server Error : Endpoint error " + result.statusText,

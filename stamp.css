@@ -111,8 +111,19 @@ h1 {
 }
 
 #stamps-container {
-    column-count: 2; /* number of columns */
+    column-count: 3; /* number of columns */
     column-gap: 2vh;
+}
+@media (max-width: 1024px) {
+  #stamps-container {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  #stamps-container {
+    column-count: 1;
+  }
 }
 
 .stamp-card {
@@ -156,7 +167,11 @@ html {
 }
 
 .stamp-card .stamp {
-    max-width: 20%;
+    max-width: 50%;
     height: auto;
     object-fit: contain;
+}
+
+.hidden-stamp {
+  filter: brightness(0%) opacity(50%);
 }

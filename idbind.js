@@ -16,8 +16,12 @@ function getCookie(query) {
   }
   return null;
 }
-let stid = getCookie("");
+let stid = getCookie("student_id");
 if (stid != null && stid != "") {
+  window.location.href = "./";
+}
+let cookieid = getCookie("session_id");
+if (cookieid === null || stid == "") {
   window.location.href = "./";
 }
 

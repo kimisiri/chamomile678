@@ -37,6 +37,7 @@
         .then(result => {
             if (result.status === "success") {
               const sessionId = result.sessionId;
+              console.log(result);
               window.location.href = `login.html?sessionId=${sessionId}&email=${result.email}` + (result.studentid != null ? `&studentid=${result.studentid}` : ""); 
             } else {
               const myPopup = new Popup({

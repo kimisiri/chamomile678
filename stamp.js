@@ -81,7 +81,7 @@ if (storedCookie != "" && storedCookie != null) {
       gravity: "bottom",
       position: "center",
       backgroundColor: color+"9a",
-      onClick: function() {console.log("waw"); if (!isvalid) {window.location.href = "/login.html"}}
+      onClick: function() {console.log("waw"); if (!isvalid) {window.location.href = "login.html"}}
     }).showToast();
   }).catch((reason) => {
     console.log("Unhandled error", reason);

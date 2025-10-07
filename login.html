@@ -38,7 +38,7 @@
         .then(result => {
             if (result.status === "success") {
               const sessionId = result.sessionId;
-              window.location.href = `/login.html?sessionId=${sessionId}&email=${result.email}`; 
+              window.location.href = `login.html?sessionId=${sessionId}&email=${result.email}`; 
             } else {
               const myPopup = new Popup({
                   id: "popup",

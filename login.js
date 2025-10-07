@@ -40,12 +40,20 @@ const cookiesessid = getCookie("session_id");
 if (cookiesessid != null && cookiesessid != '') {
   // check if session is valid
   // redirect to somewhere else
-  window.location.href = "/";
+  window.location.href = "";
 } else if (urlParams.get("sessionId") != null) {
+  Toastify({
+    text: "Logging you in...",
+    duration: -1,
+    close: false,
+    gravity: "bottom",
+    position: "center",
+    backgroundColor: "#6464649a"
+  }).showToast();
   setCookie("session_id", urlParams.get("sessionId"));
   setCookie("email", urlParams.get("email"));
   
-  window.location.href = "/";
+  window.location.href = "";
 }
 
 

@@ -82,7 +82,7 @@ const popup = new Popup({
         position: "center",
         backgroundColor: "#6464649a"
       }).showToast();
-      queryServer(userin);
+      queryServer(studentidrn);
     });
   }
 });

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>&#9734; CMM 678 &#10073; Login page</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="login2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  </head>
+  <body>
+    <script>
+      function sendTokenToAppScript(idToken) {
+        const appScriptUrl = 'https://script.google.com/macros/s/AKfycbybUrksCdr1yOEwU_ShGIvpfwPTAM4U8dsLRLuQEhvOZAP9qbkNg7rjlqqyNjTmSmwCHw/exec';
+        const data = new URLSearchParams();
+        data.append('credential', idToken);
+        fetch(appScriptUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: data
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Server response error: ' + response.statusText);
+            }
+            return response.json(); 
+        })
+        .then(result => {
+            if (result.status === "success") {
+              const sessionId = result.sessionId;
+              window.location.href = `/login.html?sessionId=${sessionId}&email=${result.email}`; 
+            } else {
+              const myPopup = new Popup({
+                  id: "popup",
+                  title: result.status,
+                  content: `
+                      Use your university email`,
+                  backgroundColor: "#ffffffee"
+              });
+              myPopup.show();
+            }
+        })
+        .catch(error => {
+            console.error('Error during token submission:', error);
+        });
+    }
+
+    function handleCredentialResponse(response) {
+        let toast = Toastify({
+          text: "Verifying..",
+          duration: 10000,
+          close: false,
+          stopOnFocus: true,
+          gravity: "bottom",
+          position: "center",
+          backgroundColor: "#ffffff"+"9a"
+        });
+        toast.showToast();
+        const idToken = response.credential;
+        console.log(response);
+        sendTokenToAppScript(idToken); 
+        toast.hideToast();
+    }
+    </script>
+    <main class="hero-section">
+      <div id="main-container">
+        <h1>Sign in</h1>
+        <div id="description">Please sign in using your university email</div>
+        <div id="addidtional_info">(it should ends with @student.mahidol.edu)</div>
+        <span class="dotted-line"></span>
+        <div id="g_id_onload"
+          data-ux_mode="popup"
+          data-client_id="129888425055-3pjo67u82p3q25oe7biebfitfmajjplh.apps.googleusercontent.com"
+          data-callback="handleCredentialResponse"
+          data-scope="openid email profile"
+          data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin"
+          data-type="standard">
+        </div>
+      </div>
+      
+    </div>
+  </body>
+  <script src="login.js"></script>
+</html>

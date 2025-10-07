@@ -40,7 +40,7 @@ const cookiesessid = getCookie("session_id");
 if (cookiesessid != null && cookiesessid != '') {
   // check if session is valid
   // redirect to somewhere else
-  window.location.href = "";
+  window.location.href = "./";
 } else if (urlParams.get("sessionId") != null) {
   Toastify({
     text: "Logging you in...",
@@ -53,7 +53,7 @@ if (cookiesessid != null && cookiesessid != '') {
   setCookie("session_id", urlParams.get("sessionId"));
   setCookie("email", urlParams.get("email"));
   
-  window.location.href = "";
+  window.location.href = "./";
 }
 
 

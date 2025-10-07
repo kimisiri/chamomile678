@@ -52,8 +52,14 @@ if (cookiesessid != null && cookiesessid != '') {
   }).showToast();
   setCookie("session_id", urlParams.get("sessionId"));
   setCookie("email", urlParams.get("email"));
+  let studentid = urlParams.get("studentid");
   
-  window.location.href = "./";
+  if (studentid == null) {
+    window.location.href = "./idbind.html";
+  } else {
+    setCookie("student_id", studentid);
+    window.location.href = "./";
+  }
 }
 
 

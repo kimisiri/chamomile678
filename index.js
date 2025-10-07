@@ -29,6 +29,11 @@ let loggedin = true;
 
 
 if (storedCookie != "" && storedCookie != null) {
+  let studentid = getCookie("student_id");
+  console.log(studentid);
+  if (studentid === null || studentid === "") {
+    window.location.href = "./idbind.html";
+  }
   loggedin = false;
   let payload = {"sessionId": storedCookie}
   let loadingToast = Toastify({

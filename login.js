@@ -35,6 +35,18 @@ function setCookie(key, value) {
 }
 
 const urlParams = new URLSearchParams(window.location.search);
+
+if (urlParams.get("expired") === "expired") {
+  Toastify({
+    text: "Session expired, please log in again",
+    duration: 2000,
+    close: false,
+    gravity: "bottom",
+    position: "center",
+    backgroundColor: "#ff00009a"
+  }).showToast();
+}
+
 console.log(urlParams);
 const cookiesessid = getCookie("session_id");
 if (cookiesessid != null && cookiesessid != '') {

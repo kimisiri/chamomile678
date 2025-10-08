@@ -100,7 +100,7 @@ if (storedCookie != "" && storedCookie != null) {
   }).then((retjson) => {
     if (!retjson.success) {
       document.cookie = "session_id='';expires=Thu, 01 Jan 1970 00:00:01 GMT";
-      window.location.href = "login.html";
+      window.location.href = "login.html?expired=expired";
       return;
     }
     const data = retjson.stamps;

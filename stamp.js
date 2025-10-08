@@ -19,12 +19,15 @@ function getCookie(query) {
 
 let storedCookie = getCookie("session_id");
 
+function unhide(key) {
+  document.getElementById(key).classList = ["stamp"];
+}
 
 if (storedCookie != "" && storedCookie != null) {
   loggedin = false;
   let payload = {"sessionId": storedCookie}
   let loadingToast = Toastify({
-    text: "Logging you in...",
+    text: "Loading data...",
     duration: -1,
     close: false,
     gravity: "bottom",
@@ -33,14 +36,16 @@ if (storedCookie != "" && storedCookie != null) {
   });
 
   loadingToast.showToast()
-  fetch("https://script.google.com/macros/s/AKfycbzYWYSCgk3HgMvctU0rDjm8_8tCIzXBVPRAg9hDRduezIfEpl73fGgOy-6yFFDjYLgS/exec", {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-Type": "text/plain"
-    }
+  fetch("https://script.google.com/macros/s/AKfycbzP-MM7Z7DUGFCmF3Ol_HWYhmPWAD6nx0Iik0_BQ7aukr-wdtm7aAbIM-tRCGLQZtg-/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain"
+    },
+    body: JSON.stringify({
+      sessionId: getCookie("session_id")
+    })
   }).then((result) => {
-    loadingToast.hideToast()
+    loadingToast.hideToast();
     if (!result.ok) {
       Toastify({
         text: "Server Error : Endpoint error " + result.statusText,
@@ -50,42 +55,27 @@ if (storedCookie != "" && storedCookie != null) {
         position: "center",
         backgroundColor: "#ff00009a"
       }).showToast();
-      storedCookie = "";
-      window.location.href = "login.html";
       throw new Error('Server response error: ' + result.statusText);
     }
     return result.json();
-  }).then((json) => {
-    let isvalid = json.valid;
-    let reason = json.reason;
-    let reasoning = "";
-    let color = "#ff0000";
-    console.log(isvalid, reason);
-    if (!isvalid) {
+  }).then((retjson) => {
+    if (!retjson.success) {
       document.cookie = "session_id='';expires=Thu, 01 Jan 1970 00:00:01 GMT";
-      reasoning = "Session expired, try logging in again.";
-      storedCookie = "";
-      setTimeout(() => {
-        window.location.href = "login.html";
-      }, 1250);
-    } else {
-      color = "#00ff00";
-      reasoning = "Logged in successfully!";
+      window.location.href = "login.html";
+      return;
     }
-
-    Toastify({
-      text: reasoning,
-      duration: 1200,
-      close: false,
-      stopOnFocus: false,
-      gravity: "bottom",
-      position: "center",
-      backgroundColor: color+"9a",
-      onClick: function() {console.log("waw"); if (!isvalid) {window.location.href = "login.html"}}
-    }).showToast();
-  }).catch((reason) => {
-    console.log("Unhandled error", reason);
-  })
+    const data = retjson.stamps;
+    for (let i = 0; i < data.length; i++) {
+      unhide(data[i]);
+    }
+    unhide("OneFunDay");
+    unhide("Rubnong");
+    unhide("SecretHug");
+    
+    /*console.log("SUCCESS :",retjson.success);
+    console.log("REASON :",retjson.reason);
+    console.log("DATA :",retjson.stamps);*/
+  });
 
 } else {
   window.location.href = "login.html";

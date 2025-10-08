@@ -54,6 +54,7 @@ if (storedCookie && storedCookie !== "" && email && email !== "") {
     backgroundColor: "#6464649a"
   }).showToast();
   document.cookie = "session_id='';expires=Thu, 01 Jan 1970 00:00:01 GMT";
+  storedCookie = ""
 }
 
 const popup = new Popup({

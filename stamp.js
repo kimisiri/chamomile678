@@ -1,4 +1,15 @@
 
+const stampData = {
+    "Secret Hug": {"SecretHug": "./stamps/SecretHug.PNG"},
+    "Rubnong": {"Rubnong": "./stamps/Rubnong.PNG"},
+    "OneFunDay": {"OneFunDay": "./stamps/OneFunDay.gif"},
+    "Midweek Melody": {"Midweekmelody": "./stamps/Placeholder.PNG"},
+    "Halloween": {
+        "Halloween": "./stamps/Placeholder.PNG",
+        "HalloweenPT2": "./stamps/Placeholder.PNG"
+    }
+};
+
 
 function getCookie(query) {
   const cookie_now = document.cookie.split("; ");
@@ -16,6 +27,35 @@ function getCookie(query) {
   return null;
 }
 
+function generateStampCollection(data, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = '';
+  for (const [title, stamps] of Object.entries(data)) {
+    const card = document.createElement('div');
+    card.className = 'stamp-card';
+
+    const titleDiv = document.createElement('div');
+    titleDiv.className = 'title';
+    titleDiv.textContent = title;
+    card.appendChild(titleDiv);
+
+    const stampsDiv = document.createElement('div');
+    stampsDiv.className = 'stamps';
+
+    for (const [id, src] of Object.entries(stamps)) {
+      const img = document.createElement('img');
+      img.className = 'stamp hidden-stamp';
+      img.alt = 'stamp';
+      img.id = id;
+      img.src = src;
+      stampsDiv.appendChild(img);
+    }
+    card.appendChild(stampsDiv);
+    container.appendChild(card);
+  }
+}
+generateStampCollection(stampData);
 
 let storedCookie = getCookie("session_id");
 

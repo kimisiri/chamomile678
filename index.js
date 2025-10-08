@@ -36,7 +36,7 @@ if (storedCookie && storedCookie !== "" && email && email !== "") {
     document.getElementById("account_button").innerText = "HI! " + email.split(".")[0].toUpperCase();
     Toastify({
       text: "Welcome, "+cap(email.split(".")[0])+"!",
-      duration: 1200,
+      duration: 3000,
       close: false,
       stopOnFocus: false,
       gravity: "bottom",
@@ -83,17 +83,6 @@ const popup = new Popup({
 });
 
 document.getElementById("account_button").addEventListener("click", function() {
-  if (!loggedin) {
-    Toastify({
-      text: "Please wait!",
-      duration: 1000,
-      close: false,
-      gravity: "bottom",
-      position: "center",
-      backgroundColor: "#6464649a"
-    }).showToast();
-    return;
-  }
   if (!storedCookie || storedCookie === "") {
     window.location.href = "login.html";
   } else {

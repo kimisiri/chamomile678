@@ -64,5 +64,9 @@
       
     </div>
   </body>
-  <script src="stamp.js"></script>
+  <script>
+    const script = document.createElement('script');
+    script.src = `stamp.js?v=${Date.now()}`; // force load
+    document.head.appendChild(script);
+  </script>
 </html>

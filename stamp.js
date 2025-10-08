@@ -72,9 +72,16 @@ if (storedCookie != "" && storedCookie != null) {
     unhide("Rubnong");
     unhide("SecretHug");
     
-    /*console.log("SUCCESS :",retjson.success);
-    console.log("REASON :",retjson.reason);
-    console.log("DATA :",retjson.stamps);*/
+    Toastify({
+      text: "Loaded!",
+      duration: 1200,
+      close: false,
+      gravity: "bottom",
+      position: "center",
+      backgroundColor: "#00ff009a"
+    }).showToast();
+  }).catch((reason) => {
+    console.log(reason);
   });
 
 } else {

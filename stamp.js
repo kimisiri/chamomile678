@@ -55,7 +55,7 @@ function generateStampCollection(data, containerId) {
     container.appendChild(card);
   }
 }
-generateStampCollection(stampData);
+generateStampCollection(stampData, "stamps-container");
 
 let storedCookie = getCookie("session_id");
 

@@ -20,6 +20,14 @@ function getCookie(query) {
   return null;
 }
 
+function clearSession() {
+  const cookiesToClear = ["session_id", "student_id", "email"];
+  cookiesToClear.forEach(cookie => {
+    document.cookie = cookie + "='';expires=Thu, 01 Jan 1970 00:00:01 GMT";
+  });
+  storedCookie = "";
+}
+
 function cap(st) {
   return st.charAt(0).toUpperCase() + st.slice(1);
 }
@@ -36,7 +44,7 @@ if (storedCookie && storedCookie !== "" && email && email !== "") {
     document.getElementById("account_button").innerText = "HI! " + email.split(".")[0].toUpperCase();
     Toastify({
       text: "Welcome, "+cap(email.split(".")[0])+"!",
-      duration: 3000,
+      duration: 2000,
       close: false,
       stopOnFocus: false,
       gravity: "bottom",
@@ -53,8 +61,7 @@ if (storedCookie && storedCookie !== "" && email && email !== "") {
     position: "center",
     backgroundColor: "#6464649a"
   }).showToast();
-  document.cookie = "session_id='';expires=Thu, 01 Jan 1970 00:00:01 GMT";
-  storedCookie = ""
+  clearSession();
 }
 
 const popup = new Popup({
@@ -66,7 +73,7 @@ const popup = new Popup({
   loadCallback: function() {
     document.querySelector(".refuse").onclick = () => { popup.hide(); };
     document.querySelector(".accept").onclick = () => {
-      document.cookie = "session_id='';expires=Thu, 01 Jan 1970 00:00:01 GMT";
+      clearSession();
       Toastify({
         text: "You have been logged out.",
         duration: 1200,
@@ -77,7 +84,6 @@ const popup = new Popup({
         backgroundColor: "#6464649a"
       }).showToast();
       popup.hide();
-      storedCookie = "";
       document.getElementById("account_button").innerText = "ACCOUNT";
     };   
   }

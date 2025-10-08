@@ -10,7 +10,6 @@ const stampData = {
     }
 };
 
-
 function getCookie(query) {
   const cookie_now = document.cookie.split("; ");
   for (let i = 0; i < cookie_now.length; i++) {

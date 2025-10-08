@@ -28,6 +28,11 @@
   color: white;
 }
 
+#description {
+  font-size: clamp(1rem, 1vw, 3rem);
+  color: var(--text-dark);
+}
+
 
 .hero-section {
     position: relative;

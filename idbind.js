@@ -17,11 +17,11 @@ function getCookie(query) {
   return null;
 }
 let stid = getCookie("student_id");
-if (stid != null && stid != "") {
+if (stid != null && stid != "" && stid != 0) {
   window.location.href = "./";
 }
 let cookieid = getCookie("session_id");
-if (cookieid === null || stid == "") {
+if (cookieid === null || stid === "") {
   window.location.href = "./";
 }
 

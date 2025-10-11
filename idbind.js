@@ -33,7 +33,7 @@ function queryServer(userid) {
         studentId: userid
       }),
       headers: {
-        "Content-Type": "text/plain"
+        "Content-Type": "application/json"
     }
   }).then((result) => {
     if (!result.ok) {

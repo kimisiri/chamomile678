@@ -78,7 +78,7 @@ if (storedCookie != "" && storedCookie != null) {
   fetch("https://script.google.com/macros/s/AKfycbzP-MM7Z7DUGFCmF3Ol_HWYhmPWAD6nx0Iik0_BQ7aukr-wdtm7aAbIM-tRCGLQZtg-/exec", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "text/plain"
     },
     body: JSON.stringify({
       sessionId: getCookie("session_id")

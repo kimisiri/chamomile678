@@ -105,11 +105,15 @@ if (storedCookie != "" && storedCookie != null) {
     }
     const data = retjson.stamps;
     for (let i = 0; i < data.length; i++) {
+      if (data[i] == "default") {
+        unhide("OneFunDay");
+        unhide("Rubnong");
+        unhide("SecretHug");
+        continue;
+      }
       unhide(data[i]);
     }
-    unhide("OneFunDay");
-    unhide("Rubnong");
-    unhide("SecretHug");
+    
     
     Toastify({
       text: "Loaded!",

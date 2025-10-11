@@ -1,4 +1,4 @@
-const vineboom = new Audio("moai.mp3");
+const vineboom = new Audio("chamomimi.mp3");
 document.getElementById("logoimg").addEventListener('click', function() {
   vineboom.currentTime = 0;
   vineboom.play();

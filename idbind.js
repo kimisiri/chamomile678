@@ -1,4 +1,3 @@
-
 const inpbox = document.getElementById('student-id');
 
 function getCookie(query) {
@@ -27,13 +26,13 @@ if (cookieid === null || stid === "") {
 
 function queryServer(userid) {
   fetch("https://script.google.com/macros/s/AKfycby-QILzuttyKoPwVPwS_jhGvDc7um4pc-TwXpH3zkGRI96_TKXuNy0QLJbxxKTiGNYK/exec", {
-      method: "POST",
-      body: JSON.stringify({
-        sessionId: getCookie("session_id"),
-        studentId: userid
-      }),
-      headers: {
-        "Content-Type": "text/plain"
+    method: "POST",
+    body: JSON.stringify({
+      sessionId: getCookie("session_id"),
+      studentId: userid
+    }),
+    headers: {
+      "Content-Type": "text/plain"
     }
   }).then((result) => {
     if (!result.ok) {
@@ -50,7 +49,7 @@ function queryServer(userid) {
     return result.json();
   }).then((json) => {
     if (json.success) {
-      document.cookie = "student_id="+userid+";";
+      document.cookie = "student_id=" + userid + ";";
       window.location.href = "./";
     } else {
       // something is wrong so just relogin lmao
@@ -89,6 +88,7 @@ const popup = new Popup({
     });
   }
 });
+
 function makepopup(userin) {
   document.querySelector("body > div.popup.confirmationpopup > div > div.popup-body").firstChild.innerHTML = "Is your student ID <span style='color: blue'>.REPLACEME</span>?".replace(".REPLACEME", userin);
   popup.show();
@@ -111,7 +111,7 @@ function handleInput() {
       backgroundColor: "#ff00009a"
     }).showToast();
   }
-  
+
 }
 
 inpbox.addEventListener('submit', function(event) {
@@ -124,4 +124,3 @@ inpbox.addEventListener('keydown', function(event) {
     handleInput();
   }
 });
-

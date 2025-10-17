@@ -65,7 +65,7 @@ if (cookiesessid != null && cookiesessid != '') {
   setCookie("session_id", urlParams.get("sessionId"));
   setCookie("email", urlParams.get("email"));
   let studentid = urlParams.get("studentid");
-  
+
   if (studentid == null) {
     window.location.href = "./idbind.html";
   } else {
@@ -73,5 +73,3 @@ if (cookiesessid != null && cookiesessid != '') {
     window.location.href = "./";
   }
 }
-
-

@@ -1,13 +1,20 @@
-
 const stampData = {
-    "Secret Hug": {"SecretHug": "./stamps/SecretHug.PNG"},
-    "Rubnong": {"Rubnong": "./stamps/Rubnong.PNG"},
-    "OneFunDay": {"OneFunDay": "./stamps/OneFunDay.gif"},
-    "Midweek Melody": {"Midweekmelody": "./stamps/Placeholder.PNG"},
-    "Halloween": {
-        "Halloween": "./stamps/Placeholder.PNG",
-        "HalloweenPT2": "./stamps/Placeholder.PNG"
-    }
+  "Secret Hug": {
+    "SecretHug": "./stamps/SecretHug.PNG"
+  },
+  "Rubnong": {
+    "Rubnong": "./stamps/Rubnong.PNG"
+  },
+  "OneFunDay": {
+    "OneFunDay": "./stamps/OneFunDay.gif"
+  },
+  "Midweek Melody": {
+    "Midweekmelody": "./stamps/Placeholder.PNG"
+  },
+  "Halloween": {
+    "Halloween": "./stamps/Placeholder.PNG",
+    "HalloweenPT2": "./stamps/Placeholder.PNG"
+  }
 };
 
 function getCookie(query) {
@@ -64,7 +71,9 @@ function unhide(key) {
 
 if (storedCookie != "" && storedCookie != null) {
   loggedin = false;
-  let payload = {"sessionId": storedCookie}
+  let payload = {
+    "sessionId": storedCookie
+  }
   let loadingToast = Toastify({
     text: "Loading data...",
     duration: -1,
@@ -113,8 +122,8 @@ if (storedCookie != "" && storedCookie != null) {
       }
       unhide(data[i]);
     }
-    
-    
+
+
     Toastify({
       text: "Loaded!",
       duration: 1200,

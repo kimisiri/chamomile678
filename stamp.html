@@ -1,74 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>&#9734; CMM 678 &#10073; Stamp collection</title>
 
-    
-    <link rel="icon" href="logo.png">
-    <link rel="stylesheet" href="stamp.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<head>
+  <title>&#9734; CMM 678 &#10073; Stamp collection</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  </head>
-  <body>
-    
-    <a href="./" class="home-button">
-      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <path d="M32 12l22 22h-6v18h-12v-12h-8v12h-12v-18h-6z"/>
-      </svg>
-    </a>
-    <main class="hero-section">
-      <div id="main-container">
-        <h1>Stamp collection</h1>
-        <span class="dotted-line" style="margin-bottom: 2rem"></span>
-        <div id="description">Collect Chamomile stamps to get a chance to earn rewards!</div>
-        <span class="dotted-line"></span>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="stamp.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+
+<body>
+
+  <a href="./" class="home-button">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 12l22 22h-6v18h-12v-12h-8v12h-12v-18h-6z" />
+    </svg>
+  </a>
+  <main class="hero-section">
+    <div id="main-container">
+      <h1 class="title-font">Stamp collection</h1>
+
+      <div id="description">Collect Chamomile stamps to get a chance to earn rewards!</div>
+      <span class="dotted-line"></span>
+
+      <div id="stamp-scroll-container">
         <div id="stamps-container">
-          <!--<div class="stamp-card">
-            <div class="title">Secret Hug</div>
-            <div class="stamps">
-              <img src="./stamps/SecretHug.PNG" class="stamp hidden-stamp" alt="stamp" id="SecretHug">
-            </div>
-          </div>
-          <div class="stamp-card">
-            <div class="title">Rubnong</div>
-            <div class="stamps">
-              <img src="./stamps/Rubnong.PNG" class="stamp hidden-stamp" alt="stamp" id="Rubnong">
-            </div>
-          </div>
-          <div class="stamp-card">
-            <div class="title">OneFunDay</div>
-            <div class="stamps">
-              <img src="./stamps/OneFunDay.gif" class="stamp hidden-stamp" alt="stamp" id="OneFunDay">
-            </div>
-          </div>
-          <div class="stamp-card">
-            <div class="title">Midweek Melody</div>
-            <div class="stamps">
-              <img src="./stamps/Placeholder.PNG" class="stamp hidden-stamp" alt="stamp" id="Midweekmelody">
-            </div>
-          </div>
-          <div class="stamp-card">
-            <div class="title">Halloween</div>
-            <div class="stamps">
-              <img src="./stamps/Placeholder.PNG" class="stamp hidden-stamp" alt="stamp" id="Halloween">
-              <img src="./stamps/Placeholder.PNG" class="stamp hidden-stamp" alt="stamp" id="HalloweenPT2">
-            </div>
-          </div>-->
         </div>
       </div>
-      
     </div>
-  </body>
-  <script>
-    const script = document.createElement('script');
-    script.src = `stamp.js?v=${Date.now()}`; // force load
-    document.head.appendChild(script);
-  </script>
+  </main>
+</body>
+<script>
+  const script = document.createElement('script');
+  script.src = `stamp.js?v=${Date.now()}`; // force load
+  document.head.appendChild(script);
+</script>
+
 </html>

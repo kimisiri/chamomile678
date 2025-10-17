@@ -43,7 +43,7 @@ if (storedCookie && storedCookie !== "" && email && email !== "") {
   } else {
     document.getElementById("account_button").innerText = "HI! " + email.split(".")[0].toUpperCase();
     Toastify({
-      text: "Welcome, "+cap(email.split(".")[0])+"!",
+      text: "Welcome, " + cap(email.split(".")[0]) + "!",
       duration: 2000,
       close: false,
       stopOnFocus: false,
@@ -71,7 +71,9 @@ const popup = new Popup({
       {btn-accept}[Yes]   {btn-refuse}[No]`,
   allowClose: false,
   loadCallback: function() {
-    document.querySelector(".refuse").onclick = () => { popup.hide(); };
+    document.querySelector(".refuse").onclick = () => {
+      popup.hide();
+    };
     document.querySelector(".accept").onclick = () => {
       clearSession();
       Toastify({
@@ -85,7 +87,7 @@ const popup = new Popup({
       }).showToast();
       popup.hide();
       document.getElementById("account_button").innerText = "ACCOUNT";
-    };   
+    };
   }
 });
 

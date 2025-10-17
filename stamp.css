@@ -1,89 +1,136 @@
-
 :root {
-    --primary-green: #79976c;
-    --text-dark: #333;
-    --text-light: #fff;
-    --background-image: url('bg2.jpg');
+  --primary-green: #79976c;
+  --text-dark: #333;
+  --text-light: #fff;
+  --background-image: url('bg2.jpg');
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    overflow-y: auto;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+
+}
+
+.title-font {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--background-image) no-repeat center center/cover;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+@media (min-width: 640px) {
+  body {
+    padding: 2rem;
+  }
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100%;
+}
+
+.hero-section::before {
+  content: none;
 }
 
 #main-container {
   z-index: 10;
-  width: 80vw;
-  height: 80vh;
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  background-color: transparent;
-  border-radius: 2rem;
+  width: 100%;
+  max-width: 80rem;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
   padding: 1rem;
   padding-top: 5rem;
   text-align: center;
-  color: white;
+  color: var(--text-dark);
+  position: relative;
+}
+
+#stamp-scroll-container {
+  height: calc(60vh - 12rem);
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  #stamp-scroll-container {
+    height: auto;
+    max-height: 60vh;
+  }
+}
+
+#stamp-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+#stamp-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #bfa38b;
+  border-radius: 10px;
 }
 
 #description {
   font-size: clamp(1rem, 1vw, 3rem);
   color: var(--text-dark);
+  margin-bottom: 2.5rem;
 }
-
-
-.hero-section {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background: var(--background-image) no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: inherit;
-    filter: blur(8px);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: var(--text-light);
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-    padding: 0 1rem;
-}
-
 
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 10vw, 7rem);
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  color: #4a5568;
+  text-shadow: none;
+  margin-bottom: 0.5rem;
 }
 
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--text-light);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  padding: 0 1rem;
+}
 
 .dotted-line {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    display: block;
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed var(--text-light);
-    opacity: 0.7;
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 90%;
+  height: 1px;
+  border-bottom: 1px solid #9ca3af;
+  opacity: 0.7;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .home-button {
@@ -95,13 +142,14 @@ h1 {
   border-radius: 50%;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, width 0.3s, height 0.3s;
 }
 
@@ -118,9 +166,11 @@ h1 {
 }
 
 #stamps-container {
-    column-count: 3; /* number of columns */
-    column-gap: 2vh;
+  column-count: 3;
+  column-gap: 2vh;
+  padding-top: 1rem;
 }
+
 @media (max-width: 1024px) {
   #stamps-container {
     column-count: 2;
@@ -134,49 +184,37 @@ h1 {
 }
 
 .stamp-card {
-    display: inline-block; /* needed for column layout */
-    width: 100%; /* full width inside the column */
-    background-color: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 2vh; /* spacing between cards */
-    box-sizing: border-box;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent; /* makes the scrollbar track transparent */
-}
-
-::-webkit-scrollbar-thumb {
+  display: inline-block;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.4);
-}
-
-html {
-  scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2vh;
+  box-sizing: border-box;
 }
 
 .stamp-card .title {
-    text-align: center;
-    font-weight: bold;
-    font-size: 2rem;
-    margin-bottom: 1vh;
-    color: var(--text-dark);
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 1vh;
+  color: var(--text-dark);
 }
 
 .stamp-card .stamps {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5vh;
 }
 
 .stamp-card .stamp {
-    max-width: 50%;
-    height: auto;
-    object-fit: contain;
+  max-width: 50%;
+  height: auto;
+  object-fit: contain;
 }
 
 .hidden-stamp {

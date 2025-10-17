@@ -1,247 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="logo.png">
-    <title>&#9734; CMM 678 &#10073; Meet Our Members</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-green: #79976c;
-            --text-dark: #333;
-            --text-light: #fff;
-            --background-image: url('bg2.jpg');
-        }
-        .title-font {
-            font-family: 'Playfair Display', serif;
-            font-weight: 500;
-        }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="logo.png">
+  <title>&#9734; CMM 678 &#10073; Meet Our Members</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-green: #79976c;
+      --text-dark: #333;
+      --text-light: #fff;
+      --background-image: url('bg2.jpg');
+    }
 
-        html, body {
-            height: 100vh;
-            margin: 0; /* also remove default margins */
-            overflow-y: hidden;
-        }
+    .title-font {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: transparent; 
-            background: var(--background-image) no-repeat center center/cover;
-            backdrop-filter: blur(10px);
-            min-height: 100vh; /* ensures full viewport height */
-            padding: 1rem;
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-        
-        @media (min-width: 640px) {
-            body {
-                padding: 2rem;
-            }
-        }
+    html,
+    body {
+      height: 100vh;
+      margin: 0;
+      overflow-y: hidden;
+    }
 
-        .content-box { 
-            background-color: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 100%;
-            max-width: 80rem;
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: transparent;
+      background: var(--background-image) no-repeat center center/cover;
+      backdrop-filter: blur(10px);
+      min-height: 100vh;
+      padding: 1rem;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
 
-        @media (min-width: 640px) {
-            .content-box {
-                padding: 3rem;
-            }
-        }
+    @media (min-width: 640px) {
+      body {
+        padding: 2rem;
+      }
+    }
 
-        .page-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        .page-header h1 {
-            font-size: 3rem;
-            color: #4a5568;
-        }
-        @media (min-width: 640px) {
-            .page-header h1 {
-                font-size: 3.75rem; 
-            }
-        }
+    .content-box {
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 100%;
+      max-width: 80rem;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
 
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1rem;
-            align-items: center;
-        }
+    @media (min-width: 640px) {
+      .content-box {
+        padding: 3rem;
+      }
+    }
 
-        .col-1 { grid-column: span 1 / span 1; }
-        .col-5 { grid-column: span 5 / span 5; }
-        .col-3 { grid-column: span 3 / span 3; }
-        
-        @media (min-width: 768px) {
-            .md-col-4 { grid-column: span 4 / span 4; }
-        }
+    .page-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
 
-        .header-row {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #4b5563;
-            text-transform: uppercase;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid #9ca3af;
-            margin-bottom: 0.5rem;
-        }
+    .page-header h1 {
+      font-size: 3rem;
+      color: #4a5568;
+    }
 
-        .scroll-container {
-            height: 480px;
-            overflow-y: auto;
-            padding-right: 0.5rem;
-        }
+    @media (min-width: 640px) {
+      .page-header h1 {
+        font-size: 3.75rem;
+      }
+    }
 
-        .scroll-container::-webkit-scrollbar {
-            width: 8px;
-        }
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
 
-        .scroll-container::-webkit-scrollbar-thumb {
-            background-color: #bfa38b;
-            border-radius: 10px;
-        }
-        
-        .member-item {
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #e5e7eb;
-            transition: background-color 0.15s;
-        }
-        .member-item:hover {
-            background-color: #fafafa;
-        }
+    .col-1 {
+      grid-column: span 1 / span 1;
+    }
 
-        .member-item img {
-            width: 3.5rem;
-            height: 3.5rem;
-            object-fit: cover;
-            border-radius: 50%;
-        }
+    .col-5 {
+      grid-column: span 5 / span 5;
+    }
 
-        .member-name {
-            font-weight: 500;
-            font-size: 1.125rem; 
-            color: #1f2937;
-        }
+    .col-3 {
+      grid-column: span 3 / span 3;
+    }
 
-        .member-role {
-            font-size: 1rem;
-            color: #4b5563;
-            text-transform: uppercase;
-        }
+    @media (min-width: 768px) {
+      .md-col-4 {
+        grid-column: span 4 / span 4;
+      }
+    }
 
-        .member-info {
-            color: #6b7280;
-            font-size: 0.875rem;
-            font-style: italic;
-        }
+    .header-row {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #4b5563;
+      text-transform: uppercase;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #9ca3af;
+      margin-bottom: 0.5rem;
+    }
 
-        .home-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-            transition: background-color 0.3s, width 0.3s, height 0.3s;
-        }
+    .scroll-container {
+      height: 480px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
 
-        .home-button:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-            width: 70px;
-            height: 70px;
-        }
+    .scroll-container::-webkit-scrollbar {
+      width: 8px;
+    }
 
-        .home-button svg {
-            width: 24px;
-            height: 24px;
-            fill: rgb(0, 0, 0);
-        }
-    </style>
+    .scroll-container::-webkit-scrollbar-thumb {
+      background-color: #bfa38b;
+      border-radius: 10px;
+    }
+
+    .member-item {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e5e7eb;
+      transition: background-color 0.15s;
+    }
+
+    .member-item:hover {
+      background-color: #fafafa;
+    }
+
+    .member-item img {
+      width: 3.5rem;
+      height: 3.5rem;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .member-name {
+      font-weight: 500;
+      font-size: 1.125rem;
+      color: #1f2937;
+    }
+
+    .member-role {
+      font-size: 1rem;
+      color: #4b5563;
+      text-transform: uppercase;
+    }
+
+    .member-info {
+      color: #6b7280;
+      font-size: 0.875rem;
+      font-style: italic;
+    }
+
+    .home-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, width 0.3s, height 0.3s;
+    }
+
+    .home-button:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      width: 70px;
+      height: 70px;
+    }
+
+    .home-button svg {
+      width: 24px;
+      height: 24px;
+      fill: rgb(0, 0, 0);
+    }
+  </style>
 </head>
+
 <body>
-    <a href="./" class="home-button">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <path d="M32 12l22 22h-6v18h-12v-12h-8v12h-12v-18h-6z"/>
-        </svg>
-    </a>
-    
-    <div class="content-box">
-        <header class="page-header">
-            <h1 class="title-font">
-                Meet our teams
-            </h1>
-        </header>
+  <a href="./" class="home-button">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 12l22 22h-6v18h-12v-12h-8v12h-12v-18h-6z" />
+    </svg>
+  </a>
 
-        <div class="header-row grid-layout">
-            <div class="col-1"></div> 
-            <div class="col-5 md-col-4">Name</div>
-            <div class="col-3 md-col-4">Role</div>
-            <div class="col-3">What is this column supposed to be?</div>
-        </div>
+  <div class="content-box">
+    <header class="page-header">
+      <h1 class="title-font">
+        Meet our teams
+      </h1>
+    </header>
 
-        <div class="scroll-container">
-            <script>
-                const members = [
-                    { name: "Pitchayapa Sukmee", role: "PRESIDENT", imname: "members/Poy.png"},
-                    { name: "Alex", role: "VICE PRESIDENT", imname: "members/Alex.jpg"},
-                    { name: "Yok", role: "SECRETARY", imname: "members/Yok.jpg"},
-                    { name: "Kaimook", role: "SECRETARY", imname: "members/Kaimook.jpg"},
-                    { name: "P Pim", role: "TREASURER", imname: "members/Pim.png"},
-                    { name: "Dada", role: "Head PR" , imname: "members/Dada.jpg"},
-                    { name: "Baimon", role: "Head PM" , imname: "members/Mon.jpg"},
+    <div class="header-row grid-layout">
+      <div class="col-1"></div>
+      <div class="col-5 md-col-4">Name</div>
+      <div class="col-4 md-col-4"></div>
+      <div class="col-3">Role</div>
+    </div>
 
-                ];
+    <div class="scroll-container">
+      <script>
+        const members = [{
+            name: "Phitchayapha Sukmee",
+            role: "PRESIDENT",
+            imname: "members/Poy.png"
+          },
 
-                const container = document.querySelector('.scroll-container');
-                
-                members.forEach((member, index) => {
-                    const itemHtml = `
+          {
+            name: "Varut Wissanuwatnakit ",
+            role: "VICE-PRESIDENT",
+            imname: "members/Alex.png"
+          },
+
+          {
+            name: "Minthita  Bawornanantaroj",
+            role: "TREASURER",
+            imname: "members/Pim.png"
+          },
+
+          {
+            name: "Thanakit Sunopak",
+            role: "SECRETARY",
+            imname: "members/Pon.png"
+          },
+          {
+            name: "Kittaphon Suknet",
+            role: "SECRETARY",
+            imname: "members/Yok.png"
+          },
+
+          {
+            name: "Jantamanee Plueangklang",
+            role: "PROJECT MANAGER",
+            imname: "members/Mon.png"
+          },
+          {
+            name: "Pornchanok Kengka",
+            role: "PROJECT MANAGER",
+            imname: "members/Year.png"
+          },
+          {
+            name: "Anissa Kuruwatcharapong ",
+            role: "PROJECT MANAGER",
+            imname: "members/Kaimook.png"
+          },
+          {
+            name: "Amy Daim",
+            role: "PROJECT MANAGER",
+            imname: "members/Amy.png"
+          },
+          {
+            name: "Monruedee Srikul",
+            role: "PROJECT MANAGER",
+            imname: "members/Bua.png"
+          },
+          {
+            name: "Phurich Niyomrat",
+            role: "PROJECT MANAGER",
+            imname: "members/Billy.png"
+          },
+          {
+            name: "Thanakrit Sae-ia",
+            role: "PROJECT MANAGER",
+            imname: "members/Dragon.png"
+          },
+          {
+            name: "Natcha Tharakulwattana",
+            role: "PROJECT MANAGER",
+            imname: "members/Lee.png"
+          },
+          {
+            name: "Boonyaporn  Rattanaraksa ",
+            role: "PROJECT MANAGER",
+            imname: "members/Nan.png"
+          },
+          {
+            name: "Tawanok Sirichote",
+            role: "PROJECT MANAGER",
+            imname: "members/Mai.png"
+          },
+          {
+            name: "Parichad Boonaom",
+            role: "PROJECT MANAGER",
+            imname: "members/Pearwa.png"
+          },
+          {
+            name: "Thanawan Yingyongsomsawad ",
+            role: "PROJECT MANAGER",
+            imname: "members/Ming.png"
+          },
+
+          {
+            name: "Prowphitcha  Leelapojsan ",
+            role: "PUBLIC RELATIONS",
+            imname: "members/Dada.png"
+          },
+          {
+            name: "Poonyapat Kulthai",
+            role: "PUBLIC RELATIONS",
+            imname: "members/Poon.png"
+          },
+          {
+            name: "Pitchapa Ritdej",
+            role: "PUBLIC RELATIONS",
+            imname: "members/Gina.png"
+          },
+          {
+            name: "Kullanant Kittironakorn ",
+            role: "PUBLIC RELATIONS",
+            imname: "members/Hong.png"
+          },
+          {
+            name: "Pichanok Vilawan",
+            role: "PUBLIC RELATIONS",
+            imname: "members/Chofah.png"
+          },
+          {
+            name: "Siri Ngamsiripol",
+            role: "PUBLIC RELATIONS",
+            imname: "members/Kim.png"
+          },
+          {
+            name: "Ramida Punpukdee",
+            role: "PUBLIC RELATIONS",
+            imname: "members/Tamtam.png"
+          },
+          {
+            name: "Korawan Apiraktanakon",
+            role: "PUBLIC RELATIONS",
+            imname: "members/Syd.png"
+          },
+
+        ];
+        const cmap = {
+          ["PROJECT MANAGER"]: "#48aa2f",
+          ["PUBLIC RELATIONS"]: "#896dbf",
+          ["SECRETARY"]: "#ffbd59",
+          ["TREASURER"]: "#ffbd59",
+          ["VICE-PRESIDENT"]: "#ffbd59",
+          ["PRESIDENT"]: "#ffed00"
+        }
+
+        const container = document.querySelector('.scroll-container');
+
+        members.forEach((member, index) => {
+          const itemHtml = `
                         <div class="member-item grid-layout">
                             <!-- Image Column -->
                             <div class="col-1" style="display: flex; justify-content: center;">
-                                <img src="${member.imname}" alt="${member.name}" style="width: 64px; height: 64px; object-fit: cover; object-position: center;">
+                                <img 
+                                    src="${member.imname}" 
+                                    class="member-headshot" 
+                                    alt="${member.name}" 
+                                    style="
+                                        width: 64px; 
+                                        height: 64px; 
+                                        object-fit: cover; 
+                                        object-position: center; 
+                                        background: radial-gradient(circle, ${cmap[member.role]} 0%, rgba(0,0,0,0) 80%);
+                                    "
+                                >
                             </div>
                             
                             <!-- Name Column -->
                             <div class="col-5 md-col-4 member-name">${member.name}</div>
+                            <div class="col-4 md-col-4"></div>
                             
                             <!-- Role Column -->
-                            <div class="col-3 md-col-4 member-role">${member.role}</div>
-                            
-                            <!-- Additional Info Column -->
-                            <div class="col-3 member-info">Maybe a Motto here</div>
+                            <div class="col-3 member-role">${member.role}</div>  
                         </div>
                     `;
-                    container.innerHTML += itemHtml;
-                });
-            </script>
-            
-        </div>
+          container.innerHTML += itemHtml;
+        });
+      </script>
+
     </div>
+  </div>
 
 </body>
+
 </html>
